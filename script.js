@@ -1,6 +1,11 @@
-const btn = document.getElementById("btn2");
-const width = 0;
-const ptag = document.getElementById('photo')
+const btnNO = document.getElementById("btnNO");
+const btnYES = document.getElementById("btnYES");
+const textDIV = document.getElementById("text");
+const mainDiv = document.getElementById("main_div");
+
+const width = mainDiv.clientWidth;
+const height = mainDiv.clientHeight;
+const ptag = document.getElementById("photo");
 const text = `Рассвет стучится в окно
             Тебя ищет уже вся Москва
             А ты спишь и тебе всё равно
@@ -491,69 +496,72 @@ All I need is your love tonight
 Как мы полетим — не нужна гравитация
 
 Моей валентинке ♥ `;
-// const timedArr = [];
-// const textArr = [...text];
-// console.log(textArr);
-// const lastArr = []
-// const revtex = [...text].reverse();
-// const start = () => {
-//   let word = [];
-//   for (let i = 0; i < textArr.length; i++) {
-//     if (textArr[i] !== " ") {
-//       word.push(textArr[i]);
-//     } else {
-//         word.push(' ')
-//       timedArr.push(word);
-//       word = [];
-//     }
-//   }
-//   let pepe =timedArr.join('')
-//   let elseoneArr =[]
-//   let timed
-//   for(let i = 0; i<timedArr.length;i++){
-//     for(let j =0; j<=timedArr[i].length;j++ ){
-//         timed = timedArr[i].join('')
 
-//     }
-//     elseoneArr.push(timed)
-    
-    
-// }
-// const ready = elseoneArr.join('')
-// console.log(ready)
-// for(let i = ready.length; i>=0;i--){
-//     setTimeout(()=>{
-//         lastArr.push(timedArr[i])
-//         ptag.innerText=lastArr
-
-//     },100)
-
-// }
-// };
-// start();
-// console.log(timedArr);
 const words = text.split(/\s+/).reverse(); // Разбиваем текст на слова и реверсим
 let index = 0;
 
 function insertWord() {
-    const clicker = 3;
-    
-    if (index < words.length) {
-        ptag.innerHTML = words[index] + " " + ptag.innerHTML; // Вставляем слово в начало
-        index++;
-        if(index<5){
-            setTimeout(insertWord, 2500); // Задержка перед следующим словом
+  textDIV.innerHTML = ":)";
 
-        }else{
-            setTimeout(insertWord, 10); // Задержка перед следующим словом
+  btnYES.style.opacity = 0;
+  btnNO.style.opacity = 0;
+  textDIV.style.opacity = 0;
 
-        }
+  setTimeout(() => {
+    btnYES.style.display = "none";
+    btnNO.style.display = "none";
+    textDIV.style.display = "none";
+    mainDiv.style.backgroundColor = "black";
+  }, 700);
+  if (index < words.length) {
+    ptag.innerHTML = words[index] + " " + ptag.innerHTML; // Вставляем слово в начало
+    index++;
+    if (index < 5) {
+      setTimeout(insertWord, 2500); // Задержка перед следующим словом
+    } else {
+      ptag.style.fontSize = "8px";
+      ptag.style.lineHeight = "6px";
+      setTimeout(insertWord, 10); // Задержка перед следующим словом
     }
+  }
 }
+btnYES.addEventListener("click", () => insertWord());
+btnNO.addEventListener("click", () => changePos());
+let fontSize = 13
 
-insertWord();
 const changePos = () => {
-  // надо получить значения полей (размеры) и от этого плясать уже
-  // btn.style
+  let rand = Math.random();
+  let rand2 = Math.random();
+  let rand3 = Math.random();
+  let btnTop = btnNO.offsetTop; // Правильное получение top
+  let btnLeft = btnNO.offsetLeft; // Правильное получение left
+  if (rand >= 0.5) {
+    if (rand2 >= 0.5) {
+      console.log("top+");
+      btnNO.style.top = btnTop + rand2 * 90 + 10 + "px"; // Добавляем px
+    } else {
+      console.log("top-");
+      btnNO.style.top = btnTop - rand2 * 90 - 10 + "px"; // Добавляем px
+    }
+  } else {
+    if (rand3 >= 0.5) {
+      console.log("left+");
+      btnNO.style.left = btnLeft + rand3 * 120 + 10 + "px"; // Добавляем px
+    } else {
+      console.log("left-");
+      btnNO.style.left = btnLeft - rand3 * 120 - 10 + "px"; // Добавляем px
+    }
+  }
+  textDIV.innerHTML = ";(";
+  let btnWidth = btnYES.clientWidth;
+  let btnHeight = btnYES.clientHeight;
+  fontSize+=5.3
+  btnWidth = btnWidth + 10
+  btnHeight = btnHeight + 5.8
+  btnYES.style.fontSize = `${fontSize}px`
+  btnYES.style.width = `${btnWidth}px`
+  btnYES.style.height = `${btnHeight}px`
+
+  // console.log(pepe)
 };
 // btn.addEventListener("click",changePos)
