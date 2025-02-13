@@ -16,9 +16,10 @@
 
 }
 .text {
-   font-family: Arial, Helvetica, sans-serif; 
-     font-weight: 600;
-    font-size: 24px;
+  font-family: "Rubik Bubbles", serif;
+  font-weight: 400;
+  font-style: normal;;
+    font-size: 36px;
     color: #c8386d;
     height: 70vh;
     transition: all 1.3s ease-in-out;
@@ -35,22 +36,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  font-family: Arial, Helvetica, sans-serif;
-  width: 120px;
+  font-family: "Rubik Bubbles", serif;
+  font-weight: 400;
+  font-style: normal;
+    width: 120px;
   height: 70px;
-  color: #a8cded;
+  color: #ffffff;
   position: absolute;
   border-radius: 24px;
   border: none;
-  /* -webkit-box-shadow: -1px 4px 15px 11px #b73ca033; */
-  /* -moz-box-shadow: -1px 4px 15px 11px #b73ca033; */
+
   transition: all 0.3s ease-in-out;
 }
 .btn_1 {
   left: -170px;
-  background-color: #359630;
-  box-shadow: -1px 4px 15px 11px #35963033;
+  background-color: #963094;
+  box-shadow: -1px 4px 15px 11px #96309433;
 
 }
 .btn_2 {
@@ -76,3 +77,36 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: rgba(255, 255, 255, 0);
 }
+.last{
+  font-size: 48px !important;
+  font-weight: 600 !important;
+  background: none !important;
+  line-height: 50px !important;
+  -webkit-text-fill-color: rgb(255, 0, 0);
+
+  color:red;
+  /* transition: all 2s ease-out; */
+  transform: scale(2);
+ 
+  animation: 1s infinite pepa;
+
+}
+.last2{
+  transition: all 2s ease-out;
+  opacity: 1 !important;
+
+}
+ @keyframes pepa{
+  0% {
+    transform: scale(2);
+
+  }
+  50% {
+    transform: scale(5);
+
+  }
+  100% {
+    transform: scale(2);
+
+  }
+ }

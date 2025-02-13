@@ -498,9 +498,36 @@ All I need is your love tonight
 Моей валентинке ♥ `;
 
 const words = text.split(/\s+/).reverse(); // Разбиваем текст на слова и реверсим
+const wordsNorm = text.split(/\s+/)
 let index = 0;
 
-function insertWord() {
+const lastVibe = ()=>{
+  // let ourRofl = [words]
+  // let pepe =ptag.innerHTML
+  // console.log(pepe)
+  let pepe = ptag.innerHTML.split(/\s+/)
+  // let pup = pepe.join(' ')
+  // pup = pup.split(/\s+/)
+  // pup.pop()
+let timer 
+  for(let i = words.length;i>=0;i--){
+    setTimeout(()=>{
+      timer = pepe.join(' ');
+      ptag.innerHTML = timer; 
+      pepe.pop()
+    },10)
+  }
+  setTimeout(() => {
+    ptag.style.opacity = 0
+    ptag.innerHTML = '♥'
+    ptag.classList.add('last')
+    // ptag.style.transition = 'all 2s ease-out'
+    setTimeout(()=>{
+      ptag.classList.add('last2')
+    },2000)
+  }, 2000);
+}
+const tryingToStart=()=>{
   textDIV.innerHTML = ":)";
 
   btnYES.style.opacity = 0;
@@ -513,23 +540,51 @@ function insertWord() {
     textDIV.style.display = "none";
     mainDiv.style.backgroundColor = "black";
   }, 700);
+  setTimeout(()=>{
+    insertWord()
+  },2300)
+} 
+function insertWord() {
+  
   if (index < words.length) {
-    ptag.innerHTML = words[index] + " " + ptag.innerHTML; // Вставляем слово в начало
+    ptag.innerHTML = words[index] + " " + ptag.innerHTML; 
     index++;
-    if (index < 5) {
-      setTimeout(insertWord, 2500); // Задержка перед следующим словом
-    } else {
+    if (index < 4 && index > 0) {
+      setTimeout(insertWord, 10);
+    } else if(index < 5){
+      setTimeout(insertWord, 4000);
+
+    }else{
       ptag.style.fontSize = "8px";
       ptag.style.lineHeight = "6px";
-      setTimeout(insertWord, 10); // Задержка перед следующим словом
+      setTimeout(insertWord, 10); 
     }
+  }else{
+    setTimeout(lastVibe,3000)
   }
+
 }
-btnYES.addEventListener("click", () => insertWord());
+btnYES.addEventListener("click", () => tryingToStart() );
 btnNO.addEventListener("click", () => changePos());
 let fontSize = 13
-
+let counter = 0;
 const changePos = () => {
+  if(counter==0){
+    btnNO.innerText = 'Нет?'
+    counter++
+  }else if(counter==1){
+    btnNO.innerText = 'Нет?('
+    counter++
+  }else if(counter==2){
+    btnNO.innerText = 'а чо'
+    counter++
+  }else if(counter==3){
+    btnNO.innerText = 'а почему'
+    counter++
+  }else{
+    btnNO.innerText = 'а может да?'
+    counter++
+  }
   let rand = Math.random();
   let rand2 = Math.random();
   let rand3 = Math.random();
