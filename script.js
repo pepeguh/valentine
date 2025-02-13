@@ -593,19 +593,19 @@ const changePos = () => {
   if (rand >= 0.5) {
     if (rand2 >= 0.5) {
       console.log("top+");
-      btnNO.style.top = btnTop + rand2 * 90 + 10 + "px"; // Добавляем px
+      btnNO.style.top = btnTop + rand2 * 60 + 10 + "px"; // Добавляем px
     } else {
       console.log("top-");
-      btnNO.style.top = btnTop - rand2 * 90 - 10 + "px"; // Добавляем px
+      btnNO.style.top = btnTop - rand2 * 60 - 10 + "px"; // Добавляем px
     }
   } else {
-    if (rand3 >= 0.5) {
-      console.log("left+");
-      btnNO.style.left = btnLeft + rand3 * 120 + 10 + "px"; // Добавляем px
-    } else {
+    // if (rand3 >= 0.5) {
+    //   console.log("left+");
+    //   // btnNO.style.left = btnLeft + rand3 * 120 + 10 + "px"; // Добавляем px
+    // } else {
       console.log("left-");
-      btnNO.style.left = btnLeft - rand3 * 120 - 10 + "px"; // Добавляем px
-    }
+      btnNO.style.left = btnLeft - rand3 * 80 - 10 + "px"; // Добавляем px
+    // }
   }
   textDIV.innerHTML = ";(";
   let btnWidth = btnYES.clientWidth;
